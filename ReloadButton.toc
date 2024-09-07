@@ -1,0 +1,25 @@
+## Interface: 110002
+## Title: ReloadButton
+## Version: 1.0.0
+## Author: RBGDEV
+## Notes: Provides button to press that will reload your ui
+## OptionalDeps: Ace3, LibStub
+## X-Credits: Ajax
+## X-License: All Rights Reserved
+## SavedVariables: ReloadButtonDB
+## X-Website: https://www.curseforge.com/wow/addons/reload-button
+## X-Curse-Project-ID:
+## X-Wago-ID:
+## X-WoWI-ID:
+
+#@no-lib-strip@
+embeds.xml
+#@end-no-lib-strip@
+
+config.lua
+helpers.lua
+anchor.lua
+button.lua
+interface.lua
+options.lua
+ReloadButton.lua
