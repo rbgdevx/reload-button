@@ -43,9 +43,9 @@ NS.AceConfig = {
       set = function(_, val)
         NS.db.global.lock = val
         if val then
-          Anchor:Lock()
+          Anchor:Lock(Anchor.frame)
         else
-          Anchor:Unlock()
+          Anchor:Unlock(Anchor.frame)
         end
       end,
       get = function(_)
