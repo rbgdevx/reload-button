@@ -1,5 +1,11 @@
 # Reload Button
 
+## [v1.0.3](https://github.com/rbgdevx/auto-body-res/releases/tag/v1.0.3) (2024-12-20)
+
+- Drag and Click control updates to ensure click through when hidden or locked
+- Minor Cleanup
+- Update toc
+
 ## [v1.0.2](https://github.com/rbgdevx/auto-body-res/releases/tag/v1.0.2) (2024-10-27)
 
 - update toc

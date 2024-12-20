@@ -1,9 +1,9 @@
-## Interface: 110005
+## Interface: 110007
 ## Title: ReloadButton
-## Version: 1.0.2
+## Version: 1.0.3
 ## Author: RBGDEV
 ## Notes: Provides button to press that will reload your ui
-## OptionalDeps: Ace3, LibStub
+## OptionalDeps: AceConfig-3.0, AceGUI-3.0, AceGUI-3.0-SharedMediaWidgets, CallbackHandler-1.0, LibSharedMedia-3.0, LibStub
 ## IconTexture: Interface\AddOns\ReloadButton\logo.tga
 ## X-Category: Miscellaneous, Developer Tools
 ## X-License: All Rights Reserved
