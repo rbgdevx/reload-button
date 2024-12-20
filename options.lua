@@ -1,7 +1,10 @@
 local AddonName, NS = ...
 
-local LibStub = LibStub
 local next = next
+local LibStub = LibStub
+
+local AceConfig = LibStub("AceConfig-3.0")
+local AceConfigDialog = LibStub("AceConfigDialog-3.0")
 
 ---@type ReloadButton
 local ReloadButton = NS.ReloadButton
@@ -59,19 +62,21 @@ function Options:SlashCommands(message)
   if message == "toggle lock" then
     if NS.db.global.lock == false then
       NS.db.global.lock = true
+      Anchor:Lock(Anchor.frame)
     else
       NS.db.global.lock = false
+      Anchor:Unlock(Anchor.frame)
     end
   else
-    LibStub("AceConfigDialog-3.0"):Open(AddonName)
+    AceConfigDialog:Open(AddonName)
   end
 end
 
 function Options:Setup()
-  LibStub("AceConfig-3.0"):RegisterOptionsTable(AddonName, NS.AceConfig)
-  LibStub("AceConfigDialog-3.0"):AddToBlizOptions(AddonName, AddonName)
+  AceConfig:RegisterOptionsTable(AddonName, NS.AceConfig)
+  AceConfigDialog:AddToBlizOptions(AddonName, AddonName)
 
-  SLASH_RB1 = AddonName
+  SLASH_RB1 = "/reloadbutton"
   SLASH_RB2 = "/rb"
 
   function SlashCmdList.RB(message)
