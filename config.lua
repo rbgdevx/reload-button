@@ -13,7 +13,6 @@ local CreateFrame = CreateFrame
 
 ---@class GlobalTable : table
 ---@field lock boolean
----@field button boolean
 ---@field position PositionArray
 ---@field debug boolean
 
@@ -43,7 +42,6 @@ NS.ReloadButton.frame = ReloadButtonFrame
 NS.DefaultDatabase = {
   global = {
     lock = false,
-    button = true,
     position = {
       "CENTER",
       "CENTER",

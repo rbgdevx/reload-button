@@ -20,29 +20,12 @@ NS.AceConfig = {
   name = AddonName,
   type = "group",
   args = {
-    button = {
-      name = "Enable a physical button to push",
-      type = "toggle",
-      width = "double",
-      order = 1,
-      set = function(_, val)
-        NS.db.global.button = val
-        Button:ToggleShow(val == true)
-        Anchor:ToggleShow(val == true)
-      end,
-      get = function(_)
-        return NS.db.global.button
-      end,
-    },
     lock = {
-      name = "Lock the position",
+      name = "Lock into place",
       desc = "Turning this feature on hides the anchor bar",
       type = "toggle",
       width = "double",
-      order = 2,
-      disabled = function(_)
-        return NS.db.global.button == false
-      end,
+      order = 1,
       set = function(_, val)
         NS.db.global.lock = val
         if val then

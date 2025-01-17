@@ -28,7 +28,7 @@ function Button:Create(anchor)
     ButtonFrame:SetWidth(85)
     ButtonFrame:SetHeight(25)
 
-    self:ToggleShow(NS.db.global.button)
+    self:ToggleShow(true)
     self:AddControls()
 
     Button.frame = ButtonFrame
