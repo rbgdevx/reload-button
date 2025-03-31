@@ -1,5 +1,9 @@
 # Reload Button
 
+## [v1.0.5](https://github.com/rbgdevx/auto-body-res/releases/tag/v1.0.5) (2025-03-30)
+
+- Update toc
+
 ## [v1.0.4](https://github.com/rbgdevx/auto-body-res/releases/tag/v1.0.4) (2025-01-16)
 
 - Removing the enable feature as this addon being enabled is that feature basically, this reduces addon size a little
