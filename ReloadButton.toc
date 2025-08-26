@@ -1,22 +1,11 @@
-## Interface: 110105
-## Title: ReloadButton
-## Version: 1.0.6
+## Interface: 110200
+## Title: Reload Button
+## Version: 1.0.7
 ## Author: RBGDEV
 ## Notes: Provides button to press that will reload your ui
-## OptionalDeps: AceConfig-3.0, AceGUI-3.0, AceGUI-3.0-SharedMediaWidgets, CallbackHandler-1.0, LibSharedMedia-3.0, LibStub
-## IconTexture: Interface\AddOns\ReloadButton\logo.tga
+## IconTexture: Interface/AddOns/ReloadButton/logo.tga
 ## SavedVariables: ReloadButtonDB
-## Category-enUS: RBGDEV
-## Category-deDE: RBGDEV
-## Category-esES: RBGDEV
-## Category-esMX: RBGDEV
-## Category-frFR: RBGDEV
-## Category-itIT: RBGDEV
-## Category-koKR: RBGDEV
-## Category-ptBR: RBGDEV
-## Category-ruRU: RBGDEV
-## Category-zhCN: RBGDEV
-## Category-zhTW: RBGDEV
+## Category: RBGDEV
 ## X-Category: Developer Tools
 ## X-License: All Rights Reserved
 ## X-Website: https://www.curseforge.com/wow/addons/reload-button
