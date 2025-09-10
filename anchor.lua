@@ -1,9 +1,7 @@
 local AddonName, NS = ...
 
 local CreateFrame = CreateFrame
-local LibStub = LibStub
-
-local AceConfigDialog = LibStub("AceConfigDialog-3.0")
+local IsInInstance = IsInInstance
 
 local Anchor = {}
 NS.Anchor = Anchor
@@ -43,18 +41,18 @@ function Anchor:MakeMoveable(frame)
   frame:SetMovable(true)
   frame:RegisterForDrag("LeftButton")
   frame:SetScript("OnDragStart", function(f)
-    if NS.db.global.lock == false and frame:IsVisible() and frame:GetAlpha() ~= 0 then
+    if NS.db.lock == false and frame:IsVisible() and frame:GetAlpha() ~= 0 then
       f:StartMoving()
     end
   end)
   frame:SetScript("OnDragStop", function(f)
-    if NS.db.global.lock == false and frame:IsVisible() and frame:GetAlpha() ~= 0 then
+    if NS.db.lock == false and frame:IsVisible() and frame:GetAlpha() ~= 0 then
       f:StopMovingOrSizing()
       local a, _, b, c, d = f:GetPoint()
-      NS.db.global.position[1] = a
-      NS.db.global.position[2] = b
-      NS.db.global.position[3] = c
-      NS.db.global.position[4] = d
+      NS.db.position[1] = a
+      NS.db.position[2] = b
+      NS.db.position[3] = c
+      NS.db.position[4] = d
     end
   end)
 end
@@ -75,9 +73,9 @@ end
 function Anchor:AddControls(frame)
   frame:EnableMouse(true)
   frame:SetScript("OnMouseUp", function(_, btn)
-    if NS.db.global.lock == false and not IsInInstance() and frame:IsVisible() and frame:GetAlpha() ~= 0 then
+    if NS.db.lock == false and not IsInInstance() and frame:IsVisible() and frame:GetAlpha() ~= 0 then
       if btn == "RightButton" then
-        AceConfigDialog:Open(AddonName)
+        Settings.OpenToCategory(NS.settingsCategory:GetID())
       end
     end
   end)
@@ -109,18 +107,12 @@ function Anchor:Create()
     header:SetJustifyV("MIDDLE")
     header:SetPoint("CENTER", bg, "CENTER", 0, 0)
 
-    AnchorFrame:SetPoint(
-      NS.db.global.position[1],
-      UIParent,
-      NS.db.global.position[2],
-      NS.db.global.position[3],
-      NS.db.global.position[4]
-    )
+    AnchorFrame:SetPoint(NS.db.position[1], UIParent, NS.db.position[2], NS.db.position[3], NS.db.position[4])
     AnchorFrame:SetWidth(header:GetStringWidth() + 1)
     AnchorFrame:SetHeight(header:GetStringHeight() + 1)
     AnchorFrame:SetClampedToScreen(true)
 
-    if NS.db.global.lock then
+    if NS.db.lock then
       self:Lock(AnchorFrame)
     else
       self:Unlock(AnchorFrame)

@@ -8,16 +8,9 @@ local CreateFrame = CreateFrame
 ---@field[3] number
 ---@field[4] number
 
----@class MapTable : table
----@field enabled boolean
-
----@class GlobalTable : table
+---@class DBTable : table
 ---@field lock boolean
 ---@field position PositionArray
----@field debug boolean
-
----@class DBTable : table
----@field global GlobalTable
 
 ---@class ReloadButton
 ---@field ADDON_LOADED function
@@ -40,14 +33,11 @@ end)
 NS.ReloadButton.frame = ReloadButtonFrame
 
 NS.DefaultDatabase = {
-  global = {
-    lock = false,
-    position = {
-      "CENTER",
-      "CENTER",
-      0,
-      0,
-    },
-    debug = false,
+  lock = false,
+  position = {
+    "CENTER",
+    "CENTER",
+    0,
+    0,
   },
 }

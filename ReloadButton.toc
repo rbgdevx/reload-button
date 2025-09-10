@@ -1,6 +1,6 @@
 ## Interface: 110200
 ## Title: Reload Button
-## Version: 1.0.7
+## Version: 1.1.0
 ## Author: RBGDEV
 ## Notes: Provides button to press that will reload your ui
 ## IconTexture: Interface/AddOns/ReloadButton/logo.tga
@@ -12,10 +12,6 @@
 ## X-Curse-Project-ID: 1098245
 ## X-Wago-ID: x61zeAK1
 ## X-WoWI-ID: 26843
-
-#@no-lib-strip@
-embeds.xml
-#@end-no-lib-strip@
 
 config.lua
 helpers.lua

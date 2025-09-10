@@ -1,5 +1,9 @@
 # Reload Button
 
+## [v1.1.0](https://github.com/rbgdevx/reload-button/releases/tag/v1.1.0) (2025-09-10)
+
+- Removing all dependencies and simplifying the addon to leverage wow api settings instead
+
 ## [v1.0.7](https://github.com/rbgdevx/reload-button/releases/tag/v1.0.7) (2025-08-26)
 
 - Update toc

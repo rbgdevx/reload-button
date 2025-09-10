@@ -6,8 +6,6 @@ local next = next
 local setmetatable = setmetatable
 local getmetatable = getmetatable
 
-local wipe = table.wipe
-
 -- Copies table values from src to dst if they don't exist in dst
 NS.CopyDefaults = function(src, dst)
   if type(src) ~= "table" then

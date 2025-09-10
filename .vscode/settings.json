@@ -1,31 +1,8 @@
 {
-  "Lua.runtime.version": "Lua 5.1",
   "Lua.diagnostics.globals": [
-    "UIParent",
-    "ReloadUI",
-    "SELECTED_CHAT_FRAME",
-    "DEFAULT_CHAT_FRAME",
-    "NORMAL_FONT_COLOR",
-    "GameFontNormal",
-    "GameFontHighlight",
-    "ACCEPT",
-    "CANCEL",
+    "SlashCmdList",
     "Settings",
-    "GameFontHighlightLarge",
-    "GameFontHighlightSmall",
-    "BackdropTemplateMixin",
-    "CLOSE",
-    "GameFontDisableSmall",
-    "GameTooltip",
-    "GameFontNormalSmall",
-    "FONT_COLOR_CODE_CLOSE",
-    "SetDesaturation",
-    "WOW_PROJECT_ID",
-    "WOW_PROJECT_MAINLINE",
-    "ColorPickerFrame",
-    "ChatFontNormal",
-    "OKAY",
-    "NOT_BOUND",
-    "SlashCmdList"
+    "UIParent",
+    "ReloadUI"
   ]
 }

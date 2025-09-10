@@ -1,63 +1,59 @@
 local AddonName, NS = ...
 
 local next = next
-local LibStub = LibStub
-
-local AceConfig = LibStub("AceConfig-3.0")
-local AceConfigDialog = LibStub("AceConfigDialog-3.0")
 
 ---@type ReloadButton
 local ReloadButton = NS.ReloadButton
 local ReloadButtonFrame = NS.ReloadButton.frame
 
 local Anchor = NS.Anchor
-local Button = NS.Button
 
 local Options = {}
 NS.Options = Options
 
-NS.AceConfig = {
-  name = AddonName,
-  type = "group",
-  args = {
-    lock = {
-      name = "Lock into place",
-      desc = "Turning this feature on hides the anchor bar",
-      type = "toggle",
-      width = "double",
-      order = 1,
-      set = function(_, val)
-        NS.db.global.lock = val
-        if val then
-          Anchor:Lock(Anchor.frame)
-        else
-          Anchor:Unlock(Anchor.frame)
-        end
-      end,
-      get = function(_)
-        return NS.db.global.lock
-      end,
-    },
-  },
-}
-
 function Options:SlashCommands(message)
   if message == "toggle lock" then
-    if NS.db.global.lock == false then
-      NS.db.global.lock = true
+    if NS.db.lock == false then
+      NS.db.lock = true
       Anchor:Lock(Anchor.frame)
     else
-      NS.db.global.lock = false
+      NS.db.lock = false
       Anchor:Unlock(Anchor.frame)
     end
   else
-    AceConfigDialog:Open(AddonName)
+    Settings.OpenToCategory(NS.settingsCategory:GetID())
+  end
+end
+
+local function OnSettingChanged(_setting, _value)
+  local _key = _setting:GetVariable()
+  ReloadButtonDB[_key] = _value
+
+  if _key == "Lock" then
+    if _value then
+      Anchor:Lock(Anchor.frame)
+    else
+      Anchor:Unlock(Anchor.frame)
+    end
   end
 end
 
 function Options:Setup()
-  AceConfig:RegisterOptionsTable(AddonName, NS.AceConfig)
-  AceConfigDialog:AddToBlizOptions(AddonName, AddonName)
+  local category = Settings.RegisterVerticalLayoutCategory(AddonName)
+  Settings.RegisterAddOnCategory(category)
+  NS.settingsCategory = category
+
+  do
+    local key = "lock"
+    local defaultValue = NS.DefaultDatabase[key]
+
+    local setting = Settings.RegisterAddOnSetting(category, "Lock", key, ReloadButtonDB, "boolean", defaultValue)
+    setting.name = "Lock"
+    setting:SetValueChangedCallback(OnSettingChanged)
+
+    local tooltip = "Lock the button into place."
+    Settings.CreateCheckbox(category, setting, tooltip)
+  end
 
   SLASH_RB1 = "/reloadbutton"
   SLASH_RB2 = "/rb"
