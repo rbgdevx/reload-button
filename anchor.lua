@@ -2,11 +2,22 @@ local AddonName, NS = ...
 
 local CreateFrame = CreateFrame
 local IsInInstance = IsInInstance
+local issecretvalue = issecretvalue or function(_)
+  return false
+end
 
 local Anchor = {}
 NS.Anchor = Anchor
 
 local AnchorFrame = CreateFrame("Frame", AddonName .. "AnchorFrame", UIParent)
+
+local function CanInteractWithFrame(frame)
+  if not frame or not frame.IsVisible or not frame:IsVisible() then
+    return false
+  end
+  local alpha = frame:GetAlpha()
+  return (not issecretvalue(alpha)) and alpha ~= 0
+end
 
 function Anchor:StopMovement()
   AnchorFrame:SetMovable(false)
@@ -41,12 +52,12 @@ function Anchor:MakeMoveable(frame)
   frame:SetMovable(true)
   frame:RegisterForDrag("LeftButton")
   frame:SetScript("OnDragStart", function(f)
-    if NS.db.lock == false and frame:IsVisible() and frame:GetAlpha() ~= 0 then
+    if NS.db.lock == false and CanInteractWithFrame(frame) then
       f:StartMoving()
     end
   end)
   frame:SetScript("OnDragStop", function(f)
-    if NS.db.lock == false and frame:IsVisible() and frame:GetAlpha() ~= 0 then
+    if NS.db.lock == false and CanInteractWithFrame(frame) then
       f:StopMovingOrSizing()
       local a, _, b, c, d = f:GetPoint()
       NS.db.position[1] = a

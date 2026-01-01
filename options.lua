@@ -29,7 +29,13 @@ local function OnSettingChanged(_setting, _value)
   local _key = _setting:GetVariable()
   ReloadButtonDB[_key] = _value
 
-  if _key == "Lock" then
+  -- Keep the live DB reference in sync so the UI updates immediately.
+  if NS.db then
+    NS.db[_key] = _value
+  end
+
+  -- Variable key is registered as "lock" (lowercase).
+  if _key == "lock" then
     if _value then
       Anchor:Lock(Anchor.frame)
     else
@@ -47,11 +53,12 @@ function Options:Setup()
     local key = "lock"
     local defaultValue = NS.DefaultDatabase[key]
 
-    local setting = Settings.RegisterAddOnSetting(category, "Lock", key, ReloadButtonDB, "boolean", defaultValue)
+    local setting =
+      Settings.RegisterAddOnSetting(category, "lock", key, ReloadButtonDB, "boolean", "Lock", defaultValue)
     setting.name = "Lock"
     setting:SetValueChangedCallback(OnSettingChanged)
 
-    local tooltip = "Lock the button into place."
+    local tooltip = "Lock the button into place"
     Settings.CreateCheckbox(category, setting, tooltip)
   end
 

@@ -1,5 +1,10 @@
 # Reload Button
 
+## [v1.2.0](https://github.com/rbgdevx/reload-button/releases/tag/v1.2.0) (2026-01-01)
+
+- Handling secret values for moving frames while in-combat or in instances
+- Ensuring the settings update in real-time to lock/unlock the button
+
 ## [v1.1.0](https://github.com/rbgdevx/reload-button/releases/tag/v1.1.0) (2025-09-10)
 
 - Removing all dependencies and simplifying the addon to leverage wow api settings instead
