@@ -1,0 +1,42 @@
+{
+  "$schema": "https://raw.githubusercontent.com/LuaLS/vscode-lua/master/setting/schema.json",
+  "runtime.version": "Lua 5.1",
+  "runtime.nonstandardSymbol": [
+    "!=",
+    "continue",
+    "//"
+  ],
+  "workspace.ignoreDir": [
+    ".git",
+    ".vscode",
+    ".claude"
+  ],
+  "diagnostics.workspaceDelay": 3000,
+  "diagnostics.disable": [
+    "lowercase-global",
+    "duplicate-set-field",
+    "missing-fields",
+    "inject-field",
+    "cast-local-type",
+    "param-type-mismatch",
+    "return-type-mismatch"
+  ],
+  "diagnostics.globals": [
+    "ReloadButtonDB",
+    "SLASH_RB1",
+    "SLASH_RB2",
+    "SlashCmdList",
+    "CreateFrame",
+    "IsInInstance",
+    "ReloadUI",
+    "Settings",
+    "UIParent",
+    "issecretvalue"
+  ],
+  "completion.callSnippet": "Replace",
+  "completion.keywordSnippet": "Replace",
+  "hint.enable": true,
+  "hint.setType": true,
+  "semantic.enable": true,
+  "telemetry.enable": false
+}
