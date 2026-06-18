@@ -1,5 +1,10 @@
 # Reload Button
 
+## [v1.2.2](https://github.com/rbgdevx/reload-button/releases/tag/v1.2.2) (2026-06-17)
+
+- Update toc
+- Adding license
+
 ## [v1.2.1](https://github.com/rbgdevx/reload-button/releases/tag/v1.2.1) (2026-04-22)
 
 - Update toc

@@ -1,6 +1,6 @@
-## Interface: 120005
+## Interface: 120007
 ## Title: Reload Button
-## Version: 1.2.1
+## Version: 1.2.2
 ## Author: RBGDEV
 ## Notes: Provides button to press that will reload your ui
 ## IconTexture: Interface/AddOns/ReloadButton/logo.tga
